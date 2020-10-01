@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name="asyncpokepy",
-    version="0.1.0",
+    version="0.1.1",
     url="https://pypi.org/project/asyncpokepy/",
     license='MIT',
 
