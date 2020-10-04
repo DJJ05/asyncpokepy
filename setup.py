@@ -15,8 +15,8 @@ def read(filename):
 
 setup(
     name="asyncpokepy",
-    version="0.1.1",
-    url="https://pypi.org/project/asyncpokepy/",
+    version="0.1.2",
+    url="https://github.com/DevilJamJar/asyncpokepy",
     license='MIT',
 
     author="Raj Sharma",
@@ -27,7 +27,7 @@ setup(
 
     packages=find_packages(exclude=('tests',)),
 
-    install_requires=["aiohttp", "asyncio"],
+    install_requires=["aiohttp"],
 
     extra_requires=["twine", "pytest"],
 
@@ -42,7 +42,7 @@ setup(
     ],
 
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3 :: Only',

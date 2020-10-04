@@ -22,12 +22,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-"""asyncpokepy - An asynchronous Python API wrapper for the PokéAPI"""
-from .exceptions import *
-from .ahttp import ahttp
-from .client import pokeclient
-from .objects import *
+class Pokemon(object):
+    def __init__(self, **entries):
+        self.__dict__.update(entries)
 
-__version__ = '0.1.2'
-__author__ = 'Raj Sharma <yrsharma@icloud.com>'
-__all__ = []
+def MakePokemon(data:dict):
+    poke = Pokemon(**data)
+    return poke
