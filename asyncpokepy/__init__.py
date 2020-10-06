@@ -28,6 +28,6 @@ from .ahttp import ahttp
 from .client import pokeclient
 from .objects import *
 
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 __author__ = 'Raj Sharma <yrsharma@icloud.com>'
 __pokeapi__ = 'https://pokeapi.co'
