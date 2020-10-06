@@ -59,13 +59,33 @@ class ahttp:
             self.session = None
 
     async def pokeget(self, poke: str):
-        """Base get request
+        """Base pokemon get request
 
         Args:
             poke (str): The pokéapi endpoint
         """
         await self.makesession()
         url = self.baseurl + 'pokemon/' + poke
+        async with self.session.get(url) as cs:
+            if cs.status == 200:
+                try:
+                    return await cs.json()
+                except aiohttp.ContentTypeError:
+                    return await cs.text()
+            if cs.status in self.codes:
+                exception = self.codes[cs.status]
+                raise exception()
+            else:
+                raise UnCaughtError(code=cs.status, error=cs.reason)
+
+    async def typeget(self, type: str):
+        """Base type get request
+
+        Args:
+            type (str): The pokéapi endpoint
+        """
+        await self.makesession()
+        url = self.baseurl + 'type/' + type
         async with self.session.get(url) as cs:
             if cs.status == 200:
                 try:

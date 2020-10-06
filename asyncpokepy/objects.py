@@ -23,9 +23,25 @@ SOFTWARE.
 """
 
 class Pokemon(object):
+    """The pokemon class
+    """
     def __init__(self, **entries):
         self.__dict__.update(entries)
 
 def MakePokemon(data:dict):
+    """The pokemon class constructor
+    """
     poke = Pokemon(**data)
     return poke
+
+class Type(object):
+    """The Type (not to be confused with type) class
+    """
+    def __init__(self, **entries):
+        self.__dict__.update(entries)
+
+def MakeType(data:dict):
+    """The Type class constructor
+    """
+    Typee = Type(**data)
+    return Typee

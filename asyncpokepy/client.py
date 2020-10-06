@@ -32,9 +32,13 @@ class pokeclient:
         self.http = ahttp()
 
     async def closesession(self):
+        """Closes the aiohttp client session
+        """
         await self.http.killsession()
 
     async def makesession(self):
+        """Makes the aiohttp client session
+        """
         await self.http.makesession()
 
     async def getpokemon(self, pokemon:str, object:bool=True):
@@ -54,4 +58,23 @@ class pokeclient:
             return dictionary
         elif object:
             object = MakePokemon(dictionary)
+            return object
+
+    async def gettype(self, type:str, object:bool=True):
+        """Gets information about a type in either dictionary or object form
+
+        Args:
+            type (str): The name of the type you would like to gather information on
+            object (bool, optional): Whether or not to return the pokemon as an object. Defaults to True.
+
+        Returns:
+            dict: A dictionary of the type if object is false
+            Pokemon: A type object if object is true
+        """
+        dictionary = await self.http.typeget(type)
+        await self.closesession()
+        if not object:
+            return dictionary
+        elif object:
+            object = MakeType(dictionary)
             return object
